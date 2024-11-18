@@ -5,16 +5,18 @@ namespace App\Models\master;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Experience extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'project_title',
-        'project_description',
-        'project_screenshot',
-        'project_url',
-        'project_tags',
-
+        'company_name',
+        'company_url',
+        'company_role',
+        'joining_date',
+        'resign_date',
+        'job_type'
     ];
+
+
 }

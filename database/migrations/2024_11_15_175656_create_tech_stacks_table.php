@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('tech_stacks', function (Blueprint $table) {
             $table->id();
+            $table->string('tech_stack_name');
+            $table->string('tech_stack_url');
+            $table->string('tech_stack_icon');
             $table->timestamps();
         });
     }

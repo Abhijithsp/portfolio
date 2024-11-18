@@ -11,8 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('experinces', function (Blueprint $table) {
+        Schema::create('experiences', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('exp_task_id')->constrained('experience_tasks')->cascadeOnDelete();
+            $table->string('company_name');
+            $table->string('company_url');
+            $table->string('company_role');
+            $table->string('joining_date');
+            $table->string('resign_date');
+            $table->enum('job_type', ["Remote", "Onsite", "Hybrid"]);
             $table->timestamps();
         });
     }
