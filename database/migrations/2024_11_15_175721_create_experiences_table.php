@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exp_task_id')->constrained('experience_tasks')->cascadeOnDelete();
             $table->string('company_name');
             $table->string('company_url');
             $table->string('company_role');
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('experinces');
+        Schema::dropIfExists('experiences');
     }
 };

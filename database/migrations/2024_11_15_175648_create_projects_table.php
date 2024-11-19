@@ -17,6 +17,9 @@ return new class extends Migration
             $table->longText('project_description');
             $table->string('project_screenshot')->nullable();
             $table->string('project_url')->nullable();
+            $table->string('appstore_url')->nullable();
+            $table->string('playstore_url')->nullable();
+            $table->string('github_url')->nullable();
             $table->string('project_tags')->nullable();
 
 
