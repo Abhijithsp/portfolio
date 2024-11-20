@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
             $table->string('username')->nullable();
-            $table->string('pro_nouns');
+            $table->string('pro_nouns')->nullable();
             $table->string('name')->nullable();
             $table->string('user_photo')->nullable();
             $table->string('title')->nullable();
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('phone_no')->nullable();
             $table->string('location')->nullable();
             $table->string('address')->nullable();
-            $table->string('known_language');
+            $table->json('known_language')->nullable();
             $table->string('github_url')->nullable();
             $table->string('linked_in_url')->nullable();
             $table->string('instagram_url')->nullable();

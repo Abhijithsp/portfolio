@@ -49,13 +49,11 @@ class UserInfoResource extends Resource
                     ->maxLength(255),
                 Select::make('known_language')
                     ->options([
-                        'eng' => 'English',
-                        'malayalam' => 'Malayalam',
-                        'tamil' => 'Tamil',
-                        'hindi' => 'Hindi',
-                    ])->multiple()
-                    
-                ,
+                        'English' => 'English',
+                        'Malayalam' => 'Malayalam',
+                        'Tamil' => 'Tamil',
+                        'Hindi' => 'Hindi',
+                    ])->multiple(),
                 Forms\Components\TextInput::make('github_url')
                     ->url()
                     ->maxLength(255),
