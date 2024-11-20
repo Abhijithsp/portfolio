@@ -6,6 +6,8 @@ use App\Filament\Resources\Master\UserInfoResource\Pages;
 use App\Filament\Resources\Master\UserInfoResource\RelationManagers;
 use App\Models\master\UserInfo;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,9 +29,12 @@ class UserInfoResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('name')
+                    ->columnSpan(2)
                     ->maxLength(255),
-                Forms\Components\TextInput::make('user_photo')
-                    ->maxLength(255),
+                FileUpload::make('user_photo')
+                    ->image()
+                    ->columnSpan(2)
+                    ->directory('images'),
                 Forms\Components\TextInput::make('title')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
@@ -42,14 +47,23 @@ class UserInfoResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('address')
                     ->maxLength(255),
-                Forms\Components\TextInput::make('known_language')
-                    ->required()
-                    ->maxLength(255),
+                Select::make('known_language')
+                    ->options([
+                        'eng' => 'English',
+                        'malayalam' => 'Malayalam',
+                        'tamil' => 'Tamil',
+                        'hindi' => 'Hindi',
+                    ])->multiple()
+                    
+                ,
                 Forms\Components\TextInput::make('github_url')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('linked_in_url')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('instagram_url')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\Toggle::make('available_status')
                     ->required(),
