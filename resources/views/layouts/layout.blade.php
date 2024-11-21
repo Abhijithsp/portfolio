@@ -55,14 +55,16 @@
 
     <nav id="navmenu" class="navmenu">
         <ul>
-            <li><a href="{{route('home_screen')}}" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
 
-            <li><a href="{{route('resume_screen')}}"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-            <li><a href="{{route('project_screen')}}"><i class="bi bi-images navicon"></i> Projects</a></li>
-            <li><a href="{{route('about_screen')}}"><i class="bi bi-person navicon"></i> About</a></li>
-            {{--            <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>--}}
+            <li><a href="{{route('home_screen')}}" class="{{ (request()->is('home_screen')) ? 'active' : '' }}"><i
+                        class="bi bi-house navicon"></i>Home</a></li>
+            <li><a href="{{route('resume_screen')}}" class="{{ (request()->is('resume_screen')) ? 'active' : '' }}"><i
+                        class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+            <li><a href="{{route('project_screen')}}" class="{{ (request()->is('project_screen')) ? 'active' : '' }}"><i
+                        class="bi bi-images navicon"></i> Projects</a></li>
+            <li><a href="{{route('about_screen')}}" class="{{ (request()->is('about_screen')) ? 'active' : '' }}"><i
+                        class="bi bi-person navicon"></i> About Me</a></li>
 
-            {{--            <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>--}}
         </ul>
     </nav>
 
@@ -70,18 +72,6 @@
 <main class="main">
     @yield('contents')
 </main>
-
-{{--<footer id="footer" class="footer position-relative fixed-bottom light-background">--}}
-
-{{--    <div class="container">--}}
-{{--        <div class="copyright text-center ">--}}
-{{--            <p>© <span>Copyright</span> <strong class="px-1 sitename">ABHIJITH SP</strong>--}}
-{{--                <span>All Rights Reserved</span></p>--}}
-{{--        </div>--}}
-
-{{--    </div>--}}
-
-{{--</footer>--}}
 
 
 <!-- Scroll Top -->
