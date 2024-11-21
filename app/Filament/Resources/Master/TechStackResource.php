@@ -10,6 +10,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class TechStackResource extends Resource
 {
@@ -22,16 +24,16 @@ class TechStackResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('tech_stack_name')
-                    ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tech_stack_url')
                     ->prefix('https://')
-                    ->url()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('tech_stack_icon')
-                    ->required()
-                    ->maxLength(255),
+                    ->url(),
+                Forms\Components\FileUpload::make('tech_stack_icon')
+                    ->image()
+                    ->image()
+                    ->columnSpan(2)
+                    ->directory('images')
+                ,
             ]);
     }
 
@@ -39,23 +41,10 @@ class TechStackResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('tech_stack_name')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('tech_stack_url')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('tech_stack_icon')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                //
             ])
             ->filters([
-                //
+                Tables\Filters\TrashedFilter::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -63,6 +52,8 @@ class TechStackResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    Tables\Actions\ForceDeleteBulkAction::make(),
+                    Tables\Actions\RestoreBulkAction::make(),
                 ]),
             ]);
     }
@@ -81,5 +72,13 @@ class TechStackResource extends Resource
             'create' => Pages\CreateTechStack::route('/create'),
             'edit' => Pages\EditTechStack::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
     }
 }
