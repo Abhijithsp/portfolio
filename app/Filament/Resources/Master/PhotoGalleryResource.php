@@ -21,14 +21,20 @@ class PhotoGalleryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\FileUpload::make('image_title')
-                    ->image()
+                Forms\Components\TextInput::make('image_title')
+                    ->columnSpan(2)
                     ->required(),
                 Forms\Components\FileUpload::make('image_snippet')
                     ->image()
+                    ->columnSpan(2)
+                    ->directory('photo_gallery')
                     ->required(),
-                Forms\Components\FileUpload::make('image_url')
-                    ->image(),
+                Forms\Components\TextInput::make('image_url')
+                    ->columnSpan(2)
+                    ->prefix('https://')
+                    ->url()
+                    ->required(),
+
             ]);
     }
 
@@ -36,9 +42,9 @@ class PhotoGalleryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image_title'),
+                Tables\Columns\TextColumn::make('image_title'),
                 Tables\Columns\ImageColumn::make('image_snippet'),
-                Tables\Columns\ImageColumn::make('image_url'),
+                Tables\Columns\TextColumn::make('image_url'),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

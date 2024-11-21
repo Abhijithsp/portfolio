@@ -6,6 +6,7 @@ use App\Filament\Resources\Master\ExperienceResource\Pages;
 use App\Filament\Resources\Master\ExperienceResource\RelationManagers;
 use App\Models\master\Experience;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -25,19 +26,24 @@ class ExperienceResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('company_url')
+                    ->prefix('https://')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('company_role')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('joining_date')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('resign_date')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('job_type')
-                    ->required(),
+                Forms\Components\DatePicker::make('joining_date')
+                    ->required()->format('d/m/Y')
+                ,
+                Forms\Components\DatePicker::make('resign_date')
+                    ->required()->format('d/m/Y'),
+                Select::make('job_type')
+                    ->options([
+                        'Hybrid' => 'Hybrid',
+                        'Work From Home' => 'Work From Home',
+
+                        'Onsite' => 'Onsite',
+                    ]),
             ]);
     }
 

@@ -30,12 +30,20 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('project_screenshot')
                     ->maxLength(255),
                 Forms\Components\TextInput::make('project_url')
+                    ->prefix('https://')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('appstore_url')
+                    ->prefix('https://')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('playstore_url')
+                    ->prefix('https://')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('github_url')
+                    ->prefix('https://')
+                    ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('project_tags')
                     ->maxLength(255),

@@ -22,12 +22,13 @@ class ExperienceTaskResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Select::make('experience_id')
-                    ->relationship('experience', 'id')
+                    ->relationship('experience', 'company_name')
                     ->required(),
                 Forms\Components\TextInput::make('experience_task_title')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('experience_task_description')
+                Forms\Components\RichEditor::make('experience_task_description')
+                    ->columnSpan(2)
                     ->required()
                     ->maxLength(255),
             ]);
@@ -37,8 +38,7 @@ class ExperienceTaskResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('experience.id')
-                    ->numeric()
+                Tables\Columns\TextColumn::make('experience.company_name')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('experience_task_title')
                     ->searchable(),

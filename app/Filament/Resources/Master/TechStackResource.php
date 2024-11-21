@@ -25,6 +25,8 @@ class TechStackResource extends Resource
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tech_stack_url')
+                    ->prefix('https://')
+                    ->url()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('tech_stack_icon')

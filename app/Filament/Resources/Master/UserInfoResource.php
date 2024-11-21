@@ -41,6 +41,7 @@ class UserInfoResource extends Resource
                     ->email()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('phone_no')
+                    ->numeric()
                     ->tel()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('location')
@@ -55,12 +56,15 @@ class UserInfoResource extends Resource
                         'Hindi' => 'Hindi',
                     ])->multiple(),
                 Forms\Components\TextInput::make('github_url')
+                    ->prefix('https://')
                     ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('linked_in_url')
+                    ->prefix('https://')
                     ->url()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('instagram_url')
+                    ->prefix('https://')
                     ->url()
                     ->maxLength(255),
                 Forms\Components\Toggle::make('available_status')
