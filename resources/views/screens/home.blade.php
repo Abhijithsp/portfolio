@@ -6,9 +6,9 @@
 @section('contents')
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    <section id="hero" class="hero  dark-background">
 
-        <img src="{{asset('assets/img/profile_hero_bg.JPG')}}" alt="" data-aos="fade-in" class="img-fluid mx-auto">
+        <img src="{{asset('assets/img/profile_hero_bg.JPG')}}" alt="" data-aos="fade-in" class="img-fluid">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <h2>ABHIJITH SP</h2>
