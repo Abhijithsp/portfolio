@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\master\UserInfo;
 
 class EntryPointController extends Controller
 {
@@ -14,7 +15,9 @@ class EntryPointController extends Controller
 
     public function about_screen()
     {
-        return view('screens.about');
+        $user = UserInfo::first();
+
+        return view('screens.about', compact('user'));
     }
 
     public function resume_screen()

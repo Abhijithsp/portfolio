@@ -18,11 +18,11 @@
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
             <div class="row gy-4 justify-content-center">
-                <div class="col-lg-4">
-                    <img src="{{asset('assets/img/my-profile-img.jpg')}}" class="img-fluid" alt="">
+                <div class="col-lg-3">
+                    <img src="{{asset('assets/img/my-profile-img.JPG')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 content">
-                    <h2>FullStack Developer.</h2>
+                    <h2>Laravel & Flutter Developer</h2>
                     <p class="fst-italic py-3">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                         labore et dolore
@@ -31,23 +31,22 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong>
-                                    <span>1 May 1995</span></li>
+
                                 <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong>
                                     <span>www.example.com</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong>
-                                    <span>+123 456 7890</span></li>
-                                <li><i class="bi bi-chevron-right"></i> <strong>City:</strong>
-                                    <span>New York, USA</span></li>
+                                    <span>{{$user->phone_no}}</span></li>
+                                <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong>
+                                    <span>{{$user->address}}</span></li>
                             </ul>
                         </div>
                         <div class="col-lg-6">
                             <ul>
-                                <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
+
                                 <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span>
                                 </li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong>
-                                    <span>email@example.com</span></li>
+                                    <span>{{$user->email}}</span></li>
                                 <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong>
                                     <span>Available</span></li>
                             </ul>
