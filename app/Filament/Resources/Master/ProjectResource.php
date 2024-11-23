@@ -27,8 +27,11 @@ class ProjectResource extends Resource
                 Forms\Components\Textarea::make('project_description')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\TextInput::make('project_screenshot')
-                    ->maxLength(255),
+                Forms\Components\FileUpload::make('project_screenshot')
+                    ->image()
+                    ->columnSpan(2)
+                    ->directory('projects')
+                    ->required(),
                 Forms\Components\TextInput::make('project_url')
                     ->prefix('https://')
                     ->url()
@@ -56,7 +59,7 @@ class ProjectResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('project_title')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('project_screenshot')
+                Tables\Columns\ImageColumn::make('project_screenshot')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('project_url')
                     ->searchable(),

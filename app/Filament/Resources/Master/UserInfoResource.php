@@ -82,7 +82,7 @@ class UserInfoResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('user_photo')
+                Tables\Columns\ImageColumn::make('user_photo')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('title')
                     ->searchable(),
