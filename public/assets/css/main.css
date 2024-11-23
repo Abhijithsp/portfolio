@@ -546,10 +546,12 @@ section,
     width: 100%;
     min-height: 100vh;
     position: relative;
-    padding: 80px 0;
+    padding: 100px 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    background-size: auto !important;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    object-fit: fill;
 }
 
 .hero img {
@@ -558,7 +560,10 @@ section,
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-size: auto !important;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    object-fit: fill;
     z-index: 1;
 }
 
@@ -572,7 +577,7 @@ section,
 
 .hero .container {
     position: relative;
-    z-index: 3;
+    z-index: 1;
 }
 
 .hero h2 {

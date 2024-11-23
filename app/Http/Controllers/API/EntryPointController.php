@@ -8,6 +8,7 @@ class EntryPointController extends Controller
 {
     public function home_screen()
     {
+
         return view('screens.home');
     }
 

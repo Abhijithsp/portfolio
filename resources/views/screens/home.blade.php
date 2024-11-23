@@ -8,7 +8,7 @@
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
 
-        <img src="{{asset('assets/img/hero-bg.jpg')}}" alt="" data-aos="fade-in" class="">
+        <img src="{{asset('assets/img/profile_hero_bg.JPG')}}" alt="" data-aos="fade-in" class="img-fluid mx-auto">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
             <h2>ABHIJITH SP</h2>
