@@ -26,6 +26,7 @@ class SkillResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('skill_percent')
                     ->required()
+                    ->maxLength(255),
             ]);
     }
 
@@ -37,6 +38,14 @@ class SkillResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('skill_percent')
                     ->searchable(),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //
