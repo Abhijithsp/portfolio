@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('experience_id')->constrained('experiences')->cascadeOnDelete();
             $table->string('experience_task_title');
-            $table->string('experience_task_description');
+            $table->longText('experience_task_description');
             $table->timestamps();
         });
     }

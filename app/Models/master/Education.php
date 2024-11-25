@@ -12,6 +12,7 @@ class Education extends Model
     protected $fillable = [
         'education',
         'education_location',
-
+        'joining_date',
+        'completed_date'
     ];
 }

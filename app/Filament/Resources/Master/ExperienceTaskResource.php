@@ -30,7 +30,7 @@ class ExperienceTaskResource extends Resource
                 Forms\Components\RichEditor::make('experience_task_description')
                     ->columnSpan(2)
                     ->required()
-                    ->maxLength(255),
+                ,
             ]);
     }
 

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('education');
             $table->string('education_location');
+            $table->string('joining_date');
+            $table->string('completed_date');
             $table->timestamps();
         });
     }

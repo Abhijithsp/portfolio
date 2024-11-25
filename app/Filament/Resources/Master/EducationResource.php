@@ -27,6 +27,11 @@ class EducationResource extends Resource
                 Forms\Components\TextInput::make('education_location')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\DatePicker::make('joining_date')
+                    ->required()->format('d/m/Y'),
+                Forms\Components\DatePicker::make('completed_date')
+                    ->required()->format('d/m/Y'),
+
             ]);
     }
 
@@ -37,6 +42,10 @@ class EducationResource extends Resource
                 Tables\Columns\TextColumn::make('education')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('education_location')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('joining_date')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('completed_date')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

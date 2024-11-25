@@ -30,7 +30,6 @@ class TechStackResource extends Resource
                     ->url(),
                 Forms\Components\FileUpload::make('tech_stack_icon')
                     ->image()
-                    ->image()
                     ->columnSpan(2)
                     ->directory('images')
                 ,
