@@ -13,6 +13,7 @@ class TechStack extends Model
     protected $fillable = [
         'tech_stack_name',
         'tech_stack_url',
-        'tech_stack_icon'
+        'tech_stack_icon',
+        'tech_stack_percent'
     ];
 }

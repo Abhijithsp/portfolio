@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('tech_stack_name');
             $table->string('tech_stack_url');
             $table->string('tech_stack_icon');
+            $table->string('tech_stack_percent');
             $table->timestamps();
         });
     }

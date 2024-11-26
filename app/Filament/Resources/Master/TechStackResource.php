@@ -28,6 +28,8 @@ class TechStackResource extends Resource
                 Forms\Components\TextInput::make('tech_stack_url')
                     ->prefix('https://')
                     ->url(),
+                Tables\Columns\TextInput::make('tech_stack_percent')
+                    ->searchable(),
                 Forms\Components\FileUpload::make('tech_stack_icon')
                     ->image()
                     ->columnSpan(2)
