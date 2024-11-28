@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Models\master\Experience;
 use App\Models\master\ExperienceTask;
+use App\Models\master\Project;
 use App\Models\master\UserInfo;
 
 class EntryPointController extends Controller
@@ -31,6 +32,7 @@ class EntryPointController extends Controller
 
     public function project_screen()
     {
-        return view('screens.projects');
+        $projects = Project::all();
+        return view('screens.projects', compact('projects'));
     }
 }
